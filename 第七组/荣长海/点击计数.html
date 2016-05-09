@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{border-radius: 50px; height: 100px; width: 100px; 
+			background: cadetblue;color: red;font-size: 30px;line-height: 100px;text-align: center;
+			-moz-user-select: none;
+			-ms-touch-select: none;}
+			
+		</style>
+	</head>
+	<body>
+		<div id="div1" onclick="add()">1</div>
+		<script type="text/javascript">
+//			利用作用域,闭包,this的知识实现点击计数的效果
+			// 第一种方法
+//			var oDiv = document.getElementById("div1");
+//			var i=0;
+//			oDiv.onclick = function(){
+//				this.index = i;
+//				i=i+1;
+//				this.innerHTML = i;
+//			}
+
+			//第二种方法
+//			var oDiv = document.getElementById("div1");
+//			var i=0;
+//		    function add(){
+//		         i++;
+//		         oDiv.innerHTML = x;
+//		    }
+			//第三种方法
+//			var oDiv = document.getElementById("div1");
+//			oDiv.onclick = (function(){
+//				var i=0;
+//				return function(){
+//					i++;
+//					oDiv.innerHTML = i;
+//				}
+//			})()
+			//第四种方法
+//			var oDiv = document.getElementById("div1");
+//			oDiv.onclick = function(){
+//				var text = oDiv.innerHTML;
+//				var num = Number(text)
+//				this.innerHTML = num + 1;
+//			}
+			
+//			var oDiv = document.getElementById("div1");
+//			(function(){
+//				var i =0;
+//				oDiv.onclick = function(){
+//					this.innerHTML = ++i;
+//				}
+//			})()
+	 
+		</script>
+	</body>
+</html>
