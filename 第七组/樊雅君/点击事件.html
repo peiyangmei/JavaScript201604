@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点赞</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft Yahei", Arial, SimSun, "宋体";
+        }
+        #div1{
+            width: 300px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            background: palegreen;
+            margin-left: 500px;
+        }
+        span{
+            display: block;
+            width: 300px;
+            height: 40px;
+            background: pink;
+            text-align: center;
+            cursor: pointer;
+        }
+        #div2{
+            margin-left: 500px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="div1">为明天点赞</div>
+<div id="div2"><span>0</span></div>
+<script type="text/javascript">
+   var oDiv=document.getElementById("div2");
+    var oSpan=oDiv.getElementsByTagName("span");
+   var count=0;
+    oSpan[0].onclick=function (){
+        count++;
+        oSpan[0].innerHTML=count;
+    };   //方法一
+
+//var oDiv=document.getElementById("div2");
+//    var oSpan=oDiv.getElementsByTagName("span");
+//   var count=0;
+//    oSpan[0].onclick=function (){
+//        count++;
+//        oSpan[0].innerHTML=count;
+//    };   方法一 直接在全局设变量
+
+//   var oDiv=document.getElementById("div2"); 第二种  作用域不销毁，占内存
+//   var oSpan=oDiv.getElementsByTagName("span")[0];
+//   function fn(){
+//       oSpan.onclick=function(){
+//           oSpan.innerHTML=++oSpan.innerHTML
+//       }
+//   }
+//  fn() ;
+
+//   var oDiv=document.getElementById("div2"); //第二种的另一种方式  直接在dom下操作
+//      var oSpan=oDiv.getElementsByTagName("span")[0];
+//          oSpan.onclick=function(){
+//              oSpan.innerHTML=++oSpan.innerHTML
+//          }
+
+//   var oDiv=document.getElementById("div2"); //第三种  给节点增加自定义属性，推荐
+//   var oSpan=oDiv.getElementsByTagName("span")[0];
+//    oSpan.num=0;
+//    oSpan.onclick=function(){
+//        oSpan.innerHTML=++oSpan.num
+//    }
+
+   var oDiv=document.getElementById("div2"); //第四种  闭包的思想，使用自执行函数的思想
+   var oSpan=oDiv.getElementsByTagName("span")[0];
+//    oSpan.onclick=(function(){
+//        var i=0;
+//        return function(){
+//            oSpan.innerHTML=++i
+//        }
+//    })()
+
+   (function(){  //第五种，也是闭包的思想
+       var i=0;
+       oSpan.onclick=function(){
+           oSpan.innerHTML=++i
+       }
+   })()
+</script>
+</body>
+</html>
