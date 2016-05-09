@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            margin: 20px auto;
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+            border-radius: 50%;
+            text-align: center;
+            background: blue;
+            line-height: 50px;
+            font-size: 14px;
+            color: orange;
+        }
+        #spanNum{
+            display: block;
+            width: 50px;
+            height: 50px;
+            margin-left: 25px;
+            background: red;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div>点赞</div>
+    <div id="btn"><span id="spanNum">0</span></div>
+
+</div>
+<script>
+    var oBtn = document.getElementById('btn');
+    var spanNum = document.getElementById('spanNum');
+
+    //1、
+    var i = 0;
+    oBtn.onclick = function () {
+        spanNum.innerHTML = ++i;
+    };
+
+    //2、
+    //方法1
+    ~function () {
+        var i = 0;
+        oBtn.onclick = function () {
+            spanNum.innerHTML = ++i;
+        };
+    }();
+    //方法2
+    oBtn.onclick = (function () {
+        var i = 0;
+        return function () {
+            spanNum.innerHTML = ++i;
+        };
+    })();
+
+    //3、
+    oBtn.onclick = function () {
+        spanNum.innerHTML++;
+    };
+
+    //4、
+    oBtn.i = 0;
+    oBtn.onclick = function () {
+        spanNum.innerHTML = ++this.i;
+    };
+</script>
+</body>
+</html>
