@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{ width: 200px; height: 200px; background: palevioletred; border-radius: 50%; cursor: pointer; margin: 100px auto; -webkit-user-select: none;}
+        span{ font-size: 80px; width: 200px; height: 200px; line-height: 200px; text-align: center; display: block;}
+    </style>
+</head>
+<body>
+    <div id="div1"><span id="span">0</span></div>
+</body>
+</html>
+<script>
+    var oDiv=document.getElementById('div1');
+    var oSpan=document.getElementById('span');
+    //1、利用全局变量不销毁的原理
+//    var num=0;
+//    oDiv.onclick=function(){
+//        num++;
+//        oSpan.innerHTML=num;
+//    }
+
+    //2、利用自己形成的不销毁的私有变量
+//    ;(function(){
+//        var num=0;
+//        oDiv.onclick=function(){
+//            num++;
+//            oSpan.innerHTML=num;
+//        }
+//    })()
+//    oDiv.onclick=(function(){
+//        var num=0;
+//        return function(){
+//            num++;
+//            oSpan.innerHTML=num;
+//        }
+//    })()
+
+    //3、利用innerHTML的方式，每一次点击都先到页面中获得最新的值，再进行累加
+//    oDiv.onclick=function(){
+//        oSpan.innerHTML++;
+//    }
+
+    //4、利用自定义属性的方式
+    oDiv.num=0;
+    oDiv.onclick=function(){
+        oSpan.innerHTML=++this.num;
+    }
+</script>
