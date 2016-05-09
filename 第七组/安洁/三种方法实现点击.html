@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+            background: mediumvioletred;
+            color: aqua;
+            font-weight: 900;
+            font-size: 100px;
+            line-height: 200px;
+            vertical-align: middle;
+            text-align: center;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<script>
+    //第一种方法this
+    /*oDiv=document.getElementById("div1");
+    oDiv.num=0;
+    oDiv.onclick=function(){
+//        oDiv.innerHTML=++this.num;
+    }*/
+
+
+    //第二种方法闭包
+
+    //    (function () {
+    //        oDiv=document.getElementById("div1");
+    //        var i=0;
+    //        oDiv.onclick=function(){
+    //            oDiv.innerHTML=++i;
+    //        }
+    //
+    //    })()
+
+    //第三种方法  DOM
+
+    //    oDiv=document.getElementById("div1");
+    //    oDiv.innerHTML=0;
+    //    function change(){
+    //        oDiv.innerHTML++;
+    //    }
+    //    oDiv.onclick=change;
+
+    //第四种方法： 作用域
+
+    oDiv=document.getElementById("div1");
+    var i=0;
+    oDiv.onclick=function(){
+        i++;
+        oDiv.innerHTML=i;
+    }
+
+
+</script>
+
+</body>
+</html>
