@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0}
+        div#li{width: 200px;height: 200px;border-radius: 50%;line-height: 200px;text-align: center;background-color:yellow}
+    </style>
+</head>
+<body>
+<div id="li">1</div>
+<script>
+    var oDiv=document.getElementById("li");
+       /*  var i=0;
+         oDiv.onclick=function(){
+             i++;
+             this.innerHTML=i;
+         }*/
+       /* oDiv.num=0;
+    oDiv.onclick=function(){
+        this.innerHTML=++this.num
+    }*/
+    (function(){
+        var num=0;
+        oDiv.onclick=function(){
+
+            this.innerHTML=++num;
+        }
+    })()
+
+</script>
+</body>
+</html>
